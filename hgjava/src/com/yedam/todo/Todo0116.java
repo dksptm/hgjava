@@ -14,9 +14,8 @@ public class Todo0116 {
 				System.out.println("<<end of prog>>");
 				scn.close();
 				break;
-			}else {
-				System.out.println("입력값은 " + input +" 입니다.");				
 			}
+			System.out.printf("입력값은 %s입니다.\n", input);
 		}
 		
 		// 입력값은 ~~ 입니다.
