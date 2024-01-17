@@ -9,6 +9,7 @@ public class LoopExe4 {
 			System.out.println();
 		}
 	}//main
+	
 	public static void method1() {
 //		for(int j=2; j<=9; j++) {
 //		// 시작
