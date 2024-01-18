@@ -10,7 +10,7 @@ public class FriendExe2 {
 		boolean run = true;
 		Friend[] friends = new Friend[5]; // {null,null,null,null,null}
 		
-		////
+		//=====미리등록=====//
 		Friend f1 = new Friend();
 		f1.name = "카리나";
 		f1.weight = 47.3;
@@ -37,7 +37,7 @@ public class FriendExe2 {
 		f5.score = 85;
 		
 		friends = new Friend[] {f1, f2, f3, f4, f5};
-		////
+		//===========//
 		
 		String name = "";
 		double weight = 0.0;
@@ -67,18 +67,32 @@ public class FriendExe2 {
 					break; //스위치 나감
 				}
 				// null 있으면 아래진행
-				System.out.print("이름>>> ");
-				name = scn.nextLine();
-				////수정중
-				if(name.equals("")) {
-					System.out.print("이름을 입력하세요!");
-				}else {
-					System.out.print("몸무게>>> ");
-					weight = Double.parseDouble(scn.nextLine());					
+				
+				String blank = "";
+				while(true) {
+					System.out.print("이름>>> ");
+					blank = scn.nextLine();
+					if(!blank.equals("")) {
+						name = blank;
+						break;
+					}
 				}
-				System.out.print("점수>>> ");
-				score = Integer.parseInt(scn.nextLine());
-				///수정중
+				while(true) {
+					System.out.print("몸무게>>> ");
+					blank = scn.nextLine();
+					if(!blank.equals("")) {
+						weight = Double.parseDouble(blank);
+						break;
+					}
+				}
+				while(true) {
+					System.out.print("점수>>> ");
+					blank = scn.nextLine();
+					if(!blank.equals("")) {
+						score = Integer.parseInt(blank);
+						break;
+					}
+				}
 				
 				Friend friend = new Friend();
 				friend.name = name;
