@@ -9,7 +9,7 @@ public class StudentExe {
 	// 클래스가 실행되면 바로 불러오는 특별한 메소드 -> 메인메소드
 	public static void main(String[] args) {
 		// Student 라는 생성자 호출 -> 호출하면 생성자 {블럭}안에 있는 코드 실행
-		Student s1 = new Student(); // 인스턴스생성.
+		Student s1 = new Student("S004", "카리나"); // 인스턴스생성.
 		// 이 new Student에서 ctrl누른상태에서 클릭하면 해당클래스 생성자로 이동함
 //		System.out.println(s1.sno); // 생성자{..}에 있던 초기화 값(S001 or null). 생성자통해 초기화진행
 

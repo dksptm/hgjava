@@ -17,8 +17,7 @@ public class Friend {
 	}
 	
 	public Friend(String fname, String fphone) {
-		this.fname = fname;
-		this.fphone = fphone;
+		this(fname, fphone, 0);
 	}
 
 	public Friend(String fname, String fphone, int fage) {

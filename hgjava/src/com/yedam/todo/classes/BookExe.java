@@ -105,6 +105,8 @@ public class BookExe {
 		MemberApp mem = new MemberApp();
 		String id, pw, mname;
 		Member member = null;
+//		Member winter = new Member("winter", "4444", "윈터");
+//		mem.addM(winter);
 		
 		while(true) {
 			System.out.print("아이디 입력>> ");
@@ -114,19 +116,38 @@ public class BookExe {
 			if(mem.login(id, pw) != null) {
 				mname = mem.login(id, pw).getName();
 				System.out.printf("%s님, 환영합니다.\n", mname);
-				member = new Member(id, pw, mname);
+//				member = new Member(id, pw, mname); 이거왜있지..
 				run = true;
 				break;
 			}
-			System.out.println("아이디,비번 오류>> 1.계속하기 2.나가기");
+			System.out.println("아이디/비번 오류>> 1.계속하기 2.나가기");
 			if(scn.nextLine().equals("2")) {
-				System.out.println("로그인시도 종료!");
+				System.out.println("로그인시도 종료..");
 				break;
 			}else {
 				System.out.println("아이디와 패스워드 다시입력해주세요.");
 				continue;
 			}
 		}
+		
+		while(run) {
+			System.out.println("1.이용자추가 9.종료");
+			int submenu = Integer.parseInt(scn.nextLine());
+			if(submenu == 1) {
+				System.out.print("추가할 id>> ");
+				String mid = scn.nextLine();
+				System.out.print("추가할 pw>> ");
+				String mpw = scn.nextLine();
+				System.out.print("추가할 이름>> ");
+				String mna = scn.nextLine();
+				member = new Member(mid, mpw, mna);
+//				mem.addM(id, pw, member);
+			}else {
+				System.out.println("이용자 추가작업 종료..");
+				break;
+			}
+		}
+		
 		
 		while(run) {
 			System.out.println("1.등록 2.목록 3.삭제 4.평가 5.별점 9.종료");

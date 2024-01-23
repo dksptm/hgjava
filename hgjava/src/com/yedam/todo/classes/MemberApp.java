@@ -27,7 +27,7 @@ class Member {
 		return name;
 	}
 
-	//메소드
+	
 }
 
 public class MemberApp{
@@ -39,7 +39,7 @@ public class MemberApp{
 		members[1] = new Member("user", "2222", "이용자");
 		members[2] = new Member("karina", "3333", "카리나");
 	}
-	
+
 	public Member login(String id, String pw) {
 		for(Member i : members) {
 			if(i != null && i.getId().equals(id)) {
@@ -49,6 +49,24 @@ public class MemberApp{
 			}
 		}
 		return null;
+	}
+	
+	private int i = 3;
+	
+	public boolean isAdmin(String id, String pw) {
+		if(id.equals("admin") && pw.equals("1111")) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean addM(Member member, boolean isAdmin) {
+		if(isAdmin) {
+			members[i] = member;
+			i++;
+			return true;
+		}
+		return false;
 	}
 	
 }

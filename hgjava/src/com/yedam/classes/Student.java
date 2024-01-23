@@ -10,6 +10,7 @@ public class Student {
 	private String sname; //null (초기값)
 	private int score; // 0 (초기값)
 	private double height; //0.0 (초기값)
+	private boolean onSchool;
 	
 	// 보통 속성들은 값을 넣거나 빼는것 직접 접근못하게 함
 	// -> 이 Student 클래스에서는 마음껏 사용가능하나 이 클래스 제외 이 필드에 직접 접근 못함
@@ -17,7 +18,7 @@ public class Student {
 	
 	// 대체적으로 필드들은 다 프라이빗으로 한다.
 	// 왜? 중요한 정보아니라도 의미없는 값이 들어올수도 있기때문에
-	// 그냥 선언으로는 막을 방법 없어서 메소드를 통해 값을 담아주기 위한 메소드가 게터.세터
+	// 그냥 필드선언으로는 막을 방법 없어서 메소드를 통해 값을 담아주기 위한 메소드가 게터.세터
 	
 	// 다른클래스에서(실행클래스도 다른클래스)
 	// 아래 이런거 사용못함
@@ -33,9 +34,9 @@ public class Student {
 	// 생성자 : new Friend(). <-기본생성자
 	// 매개값이 없는 생성자를 기본생성자라고 함
 	// 꼭 필요한거라 따로 명시안하면 기본생성자(new Friend())를 컴파일러가 만들어줌
-	Student(){
+//	Student(){
 //		this.sno = "S001"; //생성자 호출하는 것만으로 sno에 값을 넣어준다.(초기화)
-	}
+//	}
 	// 만약 이 기본생성자를 개발자가 안만들어주면 new Student() 사용못함
 	// 아예 아무것도 안만들면 컴파일러가 만들어주는데 개발자가 생성자를 만들면 따로 안만들어줌
 	
@@ -75,7 +76,7 @@ public class Student {
 	// 메소드 : 이름,매개값,리턴(리턴은 꼭 있어야. 만약 없으면 void로)
 	
 	// 리턴없는(void) 메소드
-	void showInfo() {
+	public void showInfo() {
 		System.out.printf("번호는 %s, 이름은 %s, 점수는 %d\n", this.sno, this.sname, this.score);
 		// 메소드안에 필드사용하는거라 ->this. (근데 이름같은 매개변수 없으면 안써도 됨)(알아서 this를 가리키는줄 암)
 		// this. 이 스튜던트 클래스의 필드라는..
@@ -166,6 +167,14 @@ public class Student {
 
 	public void setHeight(double height) {
 		this.height = height;
+	}
+
+	public boolean isOnSchool() { // boolean타입필드의 getter는 is를 붙인다.
+		return onSchool;
+	}
+
+	public void setOnSchool(boolean onSchool) {
+		this.onSchool = onSchool;
 	}
 	
 	// Student 라는 클래스는 사실 정보를을 모아두는.. 클래스의 의미가 크다(필드넣고 게터세터넣고..등)
