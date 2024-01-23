@@ -21,6 +21,11 @@ public class Friend extends Object{ //모든 클래스는 Object를 상속한다
 	public String toString() {
 		return "이름은 "+ name + ", 연락처는 " + phone;
 	}
+
+	public void setPhone(String phone2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

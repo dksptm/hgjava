@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class BookExe {
 	static Scanner scn = new Scanner(System.in);
 	
-	static String number="", title="", author="", hanjul="";
-	static int year, idx = 0;
+	static String title="", author="", hanjul="";
+	static int year, idx, number = 0;
 	static double star = 0.0;
 	
 	//0.권한확인
@@ -27,7 +27,7 @@ public class BookExe {
 		//중복번호확인
 		while(true) {
 			System.out.print("고유번호 입력>> ");
-			number = scn.nextLine();			
+			number = scn.nextInt();			
 			if(BookApp.overlap(number)) {
 				System.out.println("이미 등록한 번호입니다...");
 				continue;
@@ -61,7 +61,7 @@ public class BookExe {
 	
 	//3.삭제
 	public static void delete() {
-		System.out.print("삭제할 책제목 또는 고유번호 입력>> ");
+		System.out.print("삭제할 책제목 입력>> ");
 		String str = scn.nextLine();
 		
 		if(BookApp.get(str) == -1) {
@@ -76,7 +76,7 @@ public class BookExe {
 	
 	//4.평가
 	public static void update() {
-		System.out.print("평가할 책제목 또는 고유번호 입력>> ");
+		System.out.print("평가할 책제목 입력>> ");
 		String str = scn.nextLine();
 		//단건조회
 		if(BookApp.get(str) == -1) {

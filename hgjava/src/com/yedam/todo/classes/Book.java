@@ -5,7 +5,7 @@ package com.yedam.todo.classes;
 // 발행연도, 별점(실수1f), 한줄평
 public class Book {
 	//필드
-	private String number;
+	private int number;
 	private String title;
 	private String author;
 	private int pubY;
@@ -14,7 +14,7 @@ public class Book {
 	//생성자
 	public Book() {
 	}
-	public Book(String number, String title, String author, int pubY) {
+	public Book(int number, String title, String author, int pubY) {
 		this.number = number;
 		this.title = title;
 		this.author = author;
@@ -22,10 +22,10 @@ public class Book {
 	}
 	
 	//getter, setter
-	public String getNumber() {
+	public int getNumber() {
 		return number;
 	}
-	public void setNumber(String number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 	public String getTitle() {
@@ -61,7 +61,7 @@ public class Book {
 	
 	//메소드
 	public void showInfo() {
-		String str = "(%s) %s,『%s』, %d\n";
+		String str = "(%d) %s,『%s』, %d\n";
 		System.out.printf(str, this.number, this.author, this.title, this.pubY);
 	}
 	
@@ -71,7 +71,7 @@ public class Book {
 	}
 	
 	public void showTitle() {
-		String str = "(%s)-->『%s』\n";
+		String str = "(%03d)-->『%s』\n";
 		System.out.printf(str, this.number, this.title);
 	}
 	

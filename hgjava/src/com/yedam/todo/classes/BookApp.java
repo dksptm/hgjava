@@ -5,32 +5,40 @@ package com.yedam.todo.classes;
 // 중복번호확인
 // 추후 대출, 반납도.
 public class BookApp {
+	private static BookApp instance = new BookApp();
 	// 필드
 	private static Book[] books;
-	private static String[] numList;
+	private static int[] numList;
 	
-	// 생성자(그냥생략함)
+	// 생성자
+	private BookApp() {}
+	
+	//getInstance
+	public static BookApp getInstance() {
+		return instance;
+	}
 	
 	// static
 	static {
 		books = new Book[10];
-		//String number, String title, String author, int pubY
-		Book b1 = new Book("1001", "멋진 신세계", "올더스 헉슬리", 2004);
-		Book b2 = new Book("1002", "폭풍의 언덕", "에밀리 브론테", 2005);
-		Book b3 = new Book("1003", "파우스트", "괴테", 1998);
-		Book b4 = new Book("2001", "논어", "공자",2015);
-		Book b5 = new Book("2002", "목민심서", "정약용", 2017);
-		Book b6 = new Book("2003", "유토피아", "토마스 모어", 2007);
-		Book b7 = new Book("3001", "수리철학의 기초", "버트런드 러셀", 1990);
-		
-		books = new Book[] {b1, b2, b3, b4, b5, b6, b7, null, null, null};
-		numList = new String[30];
-		for(int i=0; i<7; i++) {
-			numList[i] = books[i].getNumber();
-		}
+		numList = new int[10];
 	}
 	
 	//////메소드//////
+	
+	//예시목록 넣기
+	public static void example() {
+		books[0] = new Book(66101, "멋진 신세계", "올더스 헉슬리", 2004);
+		books[1] = new Book(66102, "폭풍의 언덕", "에밀리 브론테", 2005);
+		books[2] = new Book(66103, "파우스트", "괴테", 1998);
+		books[3] = new Book(66104, "논어", "공자",2015);
+		books[4] = new Book(66105, "목민심서", "정약용", 2017);
+		books[5] = new Book(68106, "유토피아", "토마스 모어", 2007);
+		books[6] = new Book(68107, "수리철학의 기초", "버트런드 러셀", 1990);
+		for(int i=0; i<7; i++) {
+			numList[i] = books[i].getNumber();
+		}		
+	}
 	
 	// 등록
 	// null, index확인
@@ -44,12 +52,12 @@ public class BookApp {
 	}
 	
 	// 중복번호 확인
-	public static boolean overlap(String number) {
+	public static boolean overlap(int number) {
 		for(int i=0; i<numList.length;i++) {
-			if(numList[i] != null && numList[i].equals(number)) {
+			if(numList[i] != 0 && numList[i] == number) {
 				return true;
 			}
-			if(numList[i] == null){
+			if(numList[i] == 0){
 				numList[i] = number;
 				return false;
 			}
@@ -65,17 +73,15 @@ public class BookApp {
 	
 	// 목록
 	// 목록조회
+	
 	public static Book[] list() {
 		return books;
 	}
 	
 	//단건조회
-	public static int get(String str) {
+	public static int get(String title) {
 		for(int i=0; i<books.length; i++) {
-			if(books[i] != null && books[i].getTitle().equals(str)) {
-				return i;
-			}
-			if(books[i] != null && books[i].getNumber().equals(str)) {
+			if(books[i] != null && books[i].getTitle().equals(title)) {
 				return i;
 			}
 		}

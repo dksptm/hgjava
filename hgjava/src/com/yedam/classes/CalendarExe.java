@@ -42,15 +42,87 @@ public class CalendarExe {
 	}
 	
 	public static void main(String[] args) {
-		drawCalendar(2022, 1); //2024년 12월 달력
+		//drawCalendar(2022, 1); //2024년 12월 달력
 		
+		//2024년 9월 달력
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//여기에 꼭 "yyyy-MM-dd" 넣어줄것!
+		try {
+			date = sdf.parse("2024-09-15");			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-//		drawCalendar(date);//결과나오도록!
-			
+		drawCalendar(date);
+		drawCalendar("2025-01-23");
+		drawCalendar("2021-05-01");
+		
+		char c1 = 'B';
+		System.out.println((int)c1);
+		
 	}//main
 	
+	static void drawCalendar(String str) {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			date = sdf.parse(str);			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		int year = date.getYear() + 1900;
+		int month = date.getMonth() + 1;
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month - 1, 1);
+		
+		int pos = calendar.get(Calendar.DAY_OF_WEEK) - 1; //공백 //calendar.DAY_OF_WEEK 이렇게쓰면 안됨!!
+		int lastDate = calendar.getActualMaximum(Calendar.DATE); //마지막날 DATE상수값해도되는구나..
+		
+		//요일출력
+		System.out.printf("%9s%d년 %2d월\n", "", year, month);
+		System.out.println(" Sun Mon Tue Wed Thr Fri Sat");
+		//1일 위치지정
+		for(int i=0; i < pos; i++) {
+			System.out.printf("%4s", "");			
+		}
+		//1~말일까지 날짜출력
+		for(int d=1; d<=lastDate; d++) {
+			System.out.printf("%4d", d);
+			if((pos+d) % 7 == 0) {
+				System.out.println();
+			}
+		}
+		System.out.println();
+	}
+	
 	static void drawCalendar(Date date) {
-		//Date타입으로 
+
+		int year = date.getYear() + 1900;
+		int month = date.getMonth();
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month, 1);
+		
+		int pos = calendar.get(Calendar.DAY_OF_WEEK) - 1; //공백 //calendar.DAY_OF_WEEK 이렇게쓰면 안됨!!
+		int lastDate = calendar.getActualMaximum(Calendar.DATE); //마지막날 DATE상수값해도되는구나..
+		
+		//요일출력
+		System.out.printf("%9s%d년 %2d월\n", "", year, month+1);
+		System.out.println(" Sun Mon Tue Wed Thr Fri Sat");
+		//1일 위치지정
+		for(int i=0; i < pos; i++) {
+			System.out.printf("%4s", "");			
+		}
+		//1~말일까지 날짜출력
+		for(int d=1; d<=lastDate; d++) {
+			System.out.printf("%4d", d);
+			if((pos+d) % 7 == 0) {
+				System.out.println();
+			}
+		}
+		System.out.println();
+		
 	}//drawCalendar(Date date) 오버로딩
 	
 	
@@ -75,6 +147,7 @@ public class CalendarExe {
 				System.out.println();
 			}
 		}
+		System.out.println();
 		
 	}//drawCalendar 메소드
 	
