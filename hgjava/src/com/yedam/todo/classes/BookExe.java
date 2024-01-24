@@ -16,37 +16,37 @@ public class BookExe {
 	//0.권한확인
 	
 	//1.등록
-	public static void insert() {
-		//저장공간확인
-		if(BookApp.isNul() == -1) {
-			System.out.println("저장할 공간이 없습니다.");
-			return;
-		}else {
-			idx = BookApp.isNul();
-		}
-		//중복번호확인
-		while(true) {
-			System.out.print("고유번호 입력>> ");
-			number = scn.nextInt();			
-			if(BookApp.overlap(number)) {
-				System.out.println("이미 등록한 번호입니다...");
-				continue;
-			} else {
-				break;
-			}
-		}
-		//등록
-		System.out.print("책제목 입력>> ");
-		title = scn.nextLine();
-		System.out.print("저자 입력>> ");
-		author = scn.nextLine();
-		System.out.print("발행연도 입력>> ");
-		year = Integer.parseInt(scn.nextLine());
-		
-		Book book = new Book(number, title, author, year);
-		BookApp.bookAdd(idx, book);
-		System.out.println("등록완료♥");
-	}//등록메소드
+//	public static void insert() {
+//		//저장공간확인
+//		if(BookApp.isNul() == -1) {
+//			System.out.println("저장할 공간이 없습니다.");
+//			return;
+//		}else {
+//			idx = BookApp.isNul();
+//		}
+//		//중복번호확인
+//		while(true) {
+//			System.out.print("고유번호 입력>> ");
+//			number = scn.nextInt();			
+//			if(BookApp.overlap(number)) {
+//				System.out.println("이미 등록한 번호입니다...");
+//				continue;
+//			} else {
+//				break;
+//			}
+//		}
+//		//등록
+//		System.out.print("책제목 입력>> ");
+//		title = scn.nextLine();
+//		System.out.print("저자 입력>> ");
+//		author = scn.nextLine();
+//		System.out.print("발행연도 입력>> ");
+//		year = Integer.parseInt(scn.nextLine());
+//		
+//		Book book = new Book(number, title, author, year);
+//		BookApp.bookAdd(idx, book);
+//		System.out.println("등록완료♥");
+//	}//등록메소드
 	
 	//2.조회
 	public static void list() {
@@ -156,13 +156,13 @@ public class BookExe {
 			
 			switch(menu) {
 			case 1: 
-				//권한확인
-				if(member.getId().equals("admin")){
-					insert();					
-				}else {
-					System.out.printf("%s님은 권한이 없습니다.\n", member.getName());
-				}
-				break;
+//				//권한확인
+//				if(member.getId().equals("admin")){
+//					insert();					
+//				}else {
+//					System.out.printf("%s님은 권한이 없습니다.\n", member.getName());
+//				}
+//				break;
 			case 2: list(); break;
 			case 3: 
 				if(member.getId().equals("admin")){

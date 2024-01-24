@@ -10,8 +10,15 @@ public class FriendExe {
 		
 		while(run) {
 			System.out.println("1.등록 2.조회 3.수정 4.삭제 9.종료");
-			int menu = Integer.parseInt(scn.nextLine());
+			int menu =0;
 			
+			try {
+				menu = Integer.parseInt(scn.nextLine());				
+			}catch(NumberFormatException e) {
+				System.out.println("메뉴 숫자를 입력해주세요.");
+				continue;
+			}
+
 			switch(menu) {
 			case 1: //등록.(그냥친구인지, 학교친구인지, 회사친구인지)
 				System.out.println("1.친구 2.회사 3.학교");
@@ -40,7 +47,7 @@ public class FriendExe {
 					//일단 CompFriend cfriend = new CompFriend();로 인스턴스생성 후 값을 다시 부모에게..
 					//가능한 이유 : 부모라서
 					friend = cfriend; 
-					} else if (subMenu ==3) {
+				} else if (subMenu ==3) {
 					UnivFriend ufriend = new UnivFriend();
 					ufriend.setName(name);
 					ufriend.setPhone(phone);
@@ -116,6 +123,11 @@ public class FriendExe {
 			case 9:
 				System.out.println("종료...");
 				run = false;
+				break;
+				
+			default:
+				System.out.println("해당 번호의 메뉴가 없습니다.");
+					
 			}//end of switch
 		}//end of while
 		System.out.println("end of prog.");

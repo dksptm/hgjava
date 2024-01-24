@@ -55,10 +55,8 @@ public class CalendarExe {
 		
 		drawCalendar(date);
 		drawCalendar("2025-01-23");
-		drawCalendar("2021-05-01");
-		
-		char c1 = 'B';
-		System.out.println((int)c1);
+		drawCalendar("2021-05-11");
+		//
 		
 	}//main
 	

@@ -41,15 +41,6 @@ public class BookApp {
 	}
 	
 	// 등록
-	// null, index확인
-	public static int isNul() {
-		for(int i=0; i<books.length; i++) {
-			if(books[i] == null) {
-				return i;
-			}
-		}
-		return -1;
-	}
 	
 	// 중복번호 확인
 	public static boolean overlap(int number) {
@@ -66,9 +57,14 @@ public class BookApp {
 	}
 	
 	// 도서등록
-	public static void bookAdd(int idx, Book book) {
-		books[idx] = book;
-		books[idx].showTitle();
+	public static boolean bookAdd(Book book) {
+		for(int i=0; i<books.length; i++) {
+			if(books[i] == null) {
+				books[i] = book;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	// 목록

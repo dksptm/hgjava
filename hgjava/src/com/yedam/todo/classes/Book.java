@@ -5,6 +5,7 @@ package com.yedam.todo.classes;
 // 발행연도, 별점(실수1f), 한줄평
 public class Book {
 	//필드
+	private char adc;
 	private int number;
 	private String title;
 	private String author;
@@ -24,6 +25,12 @@ public class Book {
 	//getter, setter
 	public int getNumber() {
 		return number;
+	}
+	public char getAdc() {
+		return adc;
+	}
+	public void setAdc(char adc) {
+		this.adc = adc;
 	}
 	public void setNumber(int number) {
 		this.number = number;
@@ -73,6 +80,11 @@ public class Book {
 	public void showTitle() {
 		String str = "(%03d)-->『%s』\n";
 		System.out.printf(str, this.number, this.title);
+	}
+	
+	public void showBN() {
+		String str = "%c%03d";
+		System.out.printf(str, this.adc, this.number);
 	}
 	
 	
