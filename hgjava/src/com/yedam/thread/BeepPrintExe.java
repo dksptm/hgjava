@@ -18,7 +18,7 @@ public class BeepPrintExe {
 		
 		//새로운 스레드 만들어짐
 //		Thread thread = new Thread(new BeepTask()); 1번 방법.
-		Thread thread = new BeepThread();
+		Thread thread = new BeepThread();//2번방법
 		thread.start(); //start 호출하면 run()메소드 실행.
 		
 		//메인쓰레드가 실행

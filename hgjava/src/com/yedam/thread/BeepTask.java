@@ -2,7 +2,7 @@ package com.yedam.thread;
 
 import java.awt.Toolkit;
 
-// Runnable 인터페이스의 구현객체를 통해서 쓰레드.
+// Runnable 인터페이스의 구현객체를 통해서 쓰레드. 1번방법
 public class BeepTask implements Runnable {
 
 	@Override
